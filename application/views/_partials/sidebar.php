@@ -15,7 +15,7 @@
 				<li class="list-divider"></li>
 				<li class="nav-small-cap"><span class="hide-menu">Master Data</span></li>
 
-				<li class="sidebar-item"> <a class="sidebar-link" href="master/anggota" aria-expanded="false">
+				<li class="sidebar-item"> <a class="sidebar-link" href="<?= site_url('master/anggota') ?>" aria-expanded="false">
 						<i data-feather="users" class="feather-icon"></i>
 						<span class="hide-menu">
 							Anggota
