@@ -22,7 +22,7 @@
 						</span>
 					</a>
 				</li>
-				<li class="sidebar-item"> <a class="sidebar-link" href="master/anggota" aria-expanded="false">
+				<li class="sidebar-item"> <a class="sidebar-link" href="<?= site_url('master/pegawai') ?>" aria-expanded="false">
 						<i data-feather="users" class="feather-icon"></i>
 						<span class="hide-menu">
 							Pegawai

@@ -19,10 +19,20 @@ $route['dashboard']									= 'Dashboard';
 
 /*
 | -------------------------------------------------------------------------
-| DATA MASTER
+| DATA MASTER ANGGOTA
 | -------------------------------------------------------------------------
 */
 $route['master/anggota']								= 'master/Anggota';
 $route['master/anggota/simpan']						= 'master/Anggota/store';
 $route['master/anggota/edit']							= 'master/Anggota/update';
 $route['master/anggota/hapus/(:any)']					= 'master/Anggota/destroy/$1';
+
+/*
+| -------------------------------------------------------------------------
+| DATA MASTER PEGAWAI
+| -------------------------------------------------------------------------
+*/
+$route['master/pegawai']								= 'master/pegawai';
+$route['master/pegawai/simpan']						= 'master/pegawai/store';
+$route['master/pegawai/edit']							= 'master/pegawai/update';
+$route['master/pegawai/hapus/(:any)']					= 'master/pegawai/destroy/$1';
