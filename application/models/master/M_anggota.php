@@ -62,6 +62,41 @@ class M_anggota extends CI_Model
 		}
 		return $response;
 	}
+	public function update()
+	{
+		$id_anggota = $this->input->post('id_anggota');
+		$nama_anggota = $this->input->post('nama_anggota');
+		$alamat_anggota = $this->input->post('alamat_anggota');
+		$no_hp = $this->input->post('no_hp');
+		$email_post = $this->input->post('email');
+		if ($email_post === null) {
+			$email = null;
+		} else {
+			$email = $email_post;
+		}
+
+		$data = [
+			'nama_anggota'		=> $nama_anggota,
+			'alamat_anggota'	=> $alamat_anggota,
+			'no_hp'			=> $no_hp,
+			'email'			=> $email
+		];
+
+		if ($this->db->update('anggota', $data, ['id_anggota' => $id_anggota])) {
+			$response = [
+				'status' 	=> 'OK',
+				'label'	=> 'success',
+				'msg'	=> 'Data Anggota Berhasil Diedit !'
+			];
+		} else {
+			$response = [
+				'status' 	=> 'BAD REQUEST',
+				'label'	=> 'error',
+				'msg'	=> 'Data Anggota Gagal Diedit !'
+			];
+		}
+		return $response;
+	}
 }
 
 /* End of file M_anggota.php */

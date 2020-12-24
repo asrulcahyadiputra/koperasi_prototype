@@ -26,6 +26,12 @@ class Anggota extends CI_Controller
 		$this->session->set_flashdata($request['label'], $request['msg']);
 		redirect('master/anggota');
 	}
+	public function update()
+	{
+		$request = $this->model->update();
+		$this->session->set_flashdata($request['label'], $request['msg']);
+		redirect('master/anggota');
+	}
 }
 
 /* End of file Anggota.php */

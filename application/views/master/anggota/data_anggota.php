@@ -157,7 +157,7 @@
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header modal-colored-header bg-primary">
-						<h4 class="modal-title" id="primary-header-modalLabel">Tambah <?= $title ?>
+						<h4 class="modal-title" id="primary-header-modalLabel">Edit <?= $title ?>
 						</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 					</div>
@@ -183,7 +183,7 @@
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-light" data-dismiss="modal">Batal</button>
-							<button type="submit" class="btn btn-primary">Simpan</button>
+							<button type="submit" class="btn btn-primary">Simpan Perubahan</button>
 						</div>
 					</form>
 				</div><!-- /.modal-content -->
