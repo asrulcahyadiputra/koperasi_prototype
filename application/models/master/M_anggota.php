@@ -97,6 +97,30 @@ class M_anggota extends CI_Model
 		}
 		return $response;
 	}
+	public function delete($id)
+	{
+		$status = 0;
+		$date_deleted = date('Y-m-d H:i:s');
+		$data = [
+			'status'			=> $status,
+			'date_deleted'		=> $date_deleted
+		];
+
+		if ($this->db->update('anggota', $data, ['id_anggota' => $id])) {
+			$response = [
+				'status' 	=> 'OK',
+				'label'	=> 'success',
+				'msg'	=> 'Data Anggota Berhasil Dihapus !'
+			];
+		} else {
+			$response = [
+				'status' 	=> 'BAD REQUEST',
+				'label'	=> 'error',
+				'msg'	=> 'Data Anggota Gagal Dihapus !'
+			];
+		}
+		return $response;
+	}
 }
 
 /* End of file M_anggota.php */

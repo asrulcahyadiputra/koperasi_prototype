@@ -95,7 +95,7 @@
 													<i data-feather="edit-3" class="feather-icon"></i>
 												</a>
 
-												<a href="<?= site_url('master/pelanggan/hapus/' . $row['id_anggota']) ?>" class="text-danger" onclick="return confirm('Data Tidak Dapat Dikembalikan, Anda Yakin ?')">
+												<a href="<?= site_url('master/anggota/hapus/' . $row['id_anggota']) ?>" class="text-danger" onclick="return confirm('Data Tidak Dapat Dikembalikan, Anda Yakin ?')">
 													<i data-feather="trash-2" class="feather-icon"></i>
 												</a>
 											</td>
