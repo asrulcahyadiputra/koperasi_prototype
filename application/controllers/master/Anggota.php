@@ -15,7 +15,8 @@ class Anggota extends CI_Controller
 	public function index()
 	{
 		$data = [
-			'title'	=> 'Data Anggota'
+			'title'		=> 'Data Anggota',
+			'anggota'		=> $this->model->all()
 		];
 		$this->load->view('master/anggota/data_anggota', $data);
 	}
