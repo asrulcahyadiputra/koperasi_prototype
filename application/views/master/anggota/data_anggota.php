@@ -123,7 +123,7 @@
 					</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 				</div>
-				<form action="<?= site_url('master/anggota/simpan') ?>" method="POST">
+				<form action="<?= site_url('master/anggota/simpan') ?>" method="POST" class="needs-validation" novalidate>
 					<div class="modal-body">
 						<div class="form-group">
 							<label for="nama_anggota">Nama Anggota</label>
@@ -139,7 +139,7 @@
 						</div>
 						<div class="form-group">
 							<label for="alamat_anggota">Alamat</label>
-							<textarea name="alamat_anggota" id="alamat_anggota" cols="30" rows="5" class="form-control"></textarea>
+							<textarea name="alamat_anggota" id="alamat_anggota" cols="30" rows="5" class="form-control" required></textarea>
 						</div>
 					</div>
 					<div class="modal-footer">
@@ -161,7 +161,7 @@
 						</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 					</div>
-					<form action="<?= site_url('master/anggota/edit') ?>" method="POST">
+					<form action="<?= site_url('master/anggota/edit') ?>" method="POST" class="needs-validation" novalidate>
 						<input type="hidden" value="<?= $row['id_anggota'] ?>" name="id_anggota">
 						<div class="modal-body">
 							<div class="form-group">
@@ -178,7 +178,7 @@
 							</div>
 							<div class="form-group">
 								<label for="alamat_anggota">Alamat</label>
-								<textarea name="alamat_anggota" id="alamat_anggota<?= $row['id_anggota'] ?>" cols="30" rows="5" class="form-control"><?= $row['alamat_anggota'] ?></textarea>
+								<textarea name="alamat_anggota" id="alamat_anggota<?= $row['id_anggota'] ?>" cols="30" rows="5" class="form-control" required><?= $row['alamat_anggota'] ?></textarea>
 							</div>
 						</div>
 						<div class="modal-footer">
