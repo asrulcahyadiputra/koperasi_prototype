@@ -29,7 +29,7 @@
 						</span>
 					</a>
 				</li>
-				<li class="sidebar-item"> <a class="sidebar-link" href="master/anggota" aria-expanded="false">
+				<li class="sidebar-item"> <a class="sidebar-link" href="<?= site_url('master/akun') ?>" aria-expanded="false">
 						<i data-feather="list" class="feather-icon"></i>
 						<span class="hide-menu">
 							Chart of Account

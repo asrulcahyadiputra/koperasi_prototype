@@ -46,3 +46,12 @@ $route['master/user']								= 'master/User';
 $route['master/user/simpan']							= 'master/User/store';
 $route['master/user/status/(:any)/(:any)']				= 'master/User/update/$1/$2';
 $route['master/user/hapus/(:any)']						= 'master/User/destroy/$1';
+
+/*
+| -------------------------------------------------------------------------
+| DATA MASTER CHART OF ACCOUNT
+| -------------------------------------------------------------------------
+*/
+$route['master/akun']								= 'master/Akun';
+$route['master/akun/simpan']							= 'master/Akun/store';
+$route['master/akun/status/(:any)/(:any)']				= 'master/Akun/update/$1/$2';
