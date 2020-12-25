@@ -126,6 +126,36 @@ class M_user extends CI_Model
 		}
 		return $response;
 	}
+	public function delete($id_user)
+	{
+		$validate 	= $this->db->get_where('users', ['status' => 1, 'id_user' => $id_user])->row_array();
+		if ($validate) {
+			$data = [
+				'status'			=> 0,
+				'date_deleted'		=> date('Y-m-d H:i:s')
+			];
+			if ($this->db->update('users', $data, ['id_user' => $id_user])) {
+				$response = [
+					'status' 	=> 'OK',
+					'label'	=> 'success',
+					'msg'	=> 'User Berhasi dihapus !'
+				];
+			} else {
+				$response = [
+					'status' 	=> 'BAD REQUEST',
+					'label'	=> 'error',
+					'msg'	=> 'User gagal dihapus !'
+				];
+			}
+		} else {
+			$response = [
+				'status' 	=> 'ILLEGAL REQUEST',
+				'label'	=> 'error',
+				'msg'	=> 'Illegal Request, Anda mencoba mengakses user yang tidak tersedia !'
+			];
+		}
+		return $response;
+	}
 }
 
 /* End of file M_user.php */

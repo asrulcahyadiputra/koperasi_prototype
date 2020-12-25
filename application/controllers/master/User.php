@@ -31,6 +31,12 @@ class User extends CI_Controller
 		$this->session->set_flashdata($request['label'], $request['msg']);
 		redirect('master/user');
 	}
+	public function destroy($id)
+	{
+		$request = $this->model->delete($id);
+		$this->session->set_flashdata($request['label'], $request['msg']);
+		redirect('master/user');
+	}
 }
 
 /* End of file User.php */
