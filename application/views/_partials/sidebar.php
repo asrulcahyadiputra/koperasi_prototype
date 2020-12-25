@@ -36,7 +36,7 @@
 						</span>
 					</a>
 				</li>
-				<li class="sidebar-item"> <a class="sidebar-link" href="master/anggota" aria-expanded="false">
+				<li class="sidebar-item"> <a class="sidebar-link" href="<?= site_url('master/user') ?>" aria-expanded="false">
 						<i data-feather="user" class="feather-icon"></i>
 						<span class="hide-menu">
 							Users

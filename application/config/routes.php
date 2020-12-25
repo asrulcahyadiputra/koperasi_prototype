@@ -36,3 +36,13 @@ $route['master/pegawai']								= 'master/pegawai';
 $route['master/pegawai/simpan']						= 'master/pegawai/store';
 $route['master/pegawai/edit']							= 'master/pegawai/update';
 $route['master/pegawai/hapus/(:any)']					= 'master/pegawai/destroy/$1';
+
+/*
+| -------------------------------------------------------------------------
+| DATA MASTER USER
+| -------------------------------------------------------------------------
+*/
+$route['master/user']								= 'master/User';
+$route['master/user/simpan']							= 'master/User/store';
+$route['master/user/edit']							= 'master/User/update';
+$route['master/user/hapus/(:any)']						= 'master/User/destroy/$1';
