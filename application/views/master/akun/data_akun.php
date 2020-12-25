@@ -15,7 +15,7 @@
 						<ol class="breadcrumb m-0 p-0">
 							<li class="breadcrumb-item"><a href="<?= site_url('dashboard') ?>">Dashboard</a>
 							</li>
-							<li class="breadcrumb-item"><a href="<?= site_url('master/akun') ?>">Data Anggota</a>
+							<li class="breadcrumb-item"><a href="<?= site_url('master/akun') ?>">Data Akun</a>
 							</li>
 						</ol>
 					</nav>
@@ -36,7 +36,7 @@
 			<div class="col-12 mb-2">
 				<a href="" class="btn btn-primary" data-toggle="modal" data-target="#add-modal">
 					<i data-feather="plus" class="feather-icon"></i>
-					<span>Tambah Anggota</span>
+					<span>Tambah Akun</span>
 				</a>
 
 				<?php if ($this->session->flashdata('success')) : ?>
@@ -183,11 +183,11 @@
 								<label for="no_hp">Saldo Normal</label>
 								<br>
 								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="radio" id="saldo_normal" name="saldo_normal" value="d" required>
+									<input class="form-check-input" type="radio" id="saldo_normal" name="saldo_normal" value="d" <?= $row['saldo_normal'] == 'd'  ? 'checked' : '' ?> required>
 									<label class="form-check-label" for="saldo_normal">Debet</label>
 								</div>
 								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="radio" name="saldo_normal" id="saldo_normal" value="k" required>
+									<input class="form-check-input" type="radio" name="saldo_normal" id="saldo_normal" value="k" <?= $row['saldo_normal'] == 'k'  ? 'checked' : '' ?> required>
 									<label class="form-check-label" for="saldo_normal">Kredit</label>
 								</div>
 							</div>
@@ -196,7 +196,7 @@
 								<select name="kode_sub_akun" id="kode_sub_akun" class="form-control" required>
 									<option value="">-pilih header-</option>
 									<?php foreach ($subAkun as $sa) : ?>
-										<option value="<?= $sa['kode_sub_akun'] ?>"><?= $sa['kode_sub_akun'] . ' ' . $sa['nama_sub_akun'] ?></option>
+										<option <?= $row['kode_sub_akun'] == $sa['kode_sub_akun'] ? "selected" : "" ?> value="<?= $sa['kode_sub_akun'] ?>"><?= $sa['kode_sub_akun'] . ' ' . $sa['nama_sub_akun'] ?></option>
 									<?php endforeach ?>
 								</select>
 							</div>

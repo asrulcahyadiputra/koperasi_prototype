@@ -26,6 +26,12 @@ class Akun extends CI_Controller
 		$this->session->set_flashdata($request['label'], $request['msg']);
 		redirect('master/akun');
 	}
+	public function update()
+	{
+		$request = $this->model->update();
+		$this->session->set_flashdata($request['label'], $request['msg']);
+		redirect('master/akun');
+	}
 }
 
 /* End of file Akun.php */

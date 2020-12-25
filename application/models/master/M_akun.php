@@ -63,6 +63,33 @@ class M_akun extends CI_Model
 		}
 		return $response;
 	}
+	public function update()
+	{
+		$kode_sub_akun = $this->input->post('kode_sub_akun');
+		$kode_akun = $this->input->post('kode_akun');
+		$nama_akun = $this->input->post('nama_akun');
+		$saldo_normal = $this->input->post('saldo_normal');
+		$data = [
+			'nama_akun'		=> $nama_akun,
+			'saldo_normal'		=> $saldo_normal,
+			'kode_sub_akun'	=> $kode_sub_akun
+		];
+
+		if ($this->db->update('akun', $data, ['kode_akun' => $kode_akun])) {
+			$response = [
+				'sataus'	=> 'OK',
+				'label'	=> 'success',
+				'msg'	=> 'Akun Berhasil Diedit !'
+			];
+		} else {
+			$response = [
+				'status'	=> 'BAD REQUEST',
+				'label'	=> 'error',
+				'msg'	=> 'Akun Gagal Diedit !'
+			];
+		}
+		return $response;
+	}
 }
 
 /* End of file M_akun.php */

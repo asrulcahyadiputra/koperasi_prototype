@@ -54,4 +54,4 @@ $route['master/user/hapus/(:any)']						= 'master/User/destroy/$1';
 */
 $route['master/akun']								= 'master/Akun';
 $route['master/akun/simpan']							= 'master/Akun/store';
-$route['master/akun/status/(:any)/(:any)']				= 'master/Akun/update/$1/$2';
+$route['master/akun/edit']							= 'master/Akun/update';
