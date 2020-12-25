@@ -53,7 +53,7 @@
 					</a>
 					<ul aria-expanded="false" class="collapse  first-level base-level-line">
 						<li class="sidebar-item">
-							<a href="form-inputs.html" class="sidebar-link">
+							<a href="<?= site_url('transaksi/penyetoran') ?>" class="sidebar-link">
 								<span class="hide-menu">
 									Penyetoran
 								</span>

@@ -41,8 +41,7 @@
 <!--This page plugins -->
 <script src="<?= base_url() ?>assets/assets/extra-libs/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?= base_url() ?>assets/dist/js/pages/datatable/datatable-basic.init.js"></script>
-
-
+<script src="<?= base_url() ?>assets/dist/js/currency.js"></script>
 <script>
 	// Example starter JavaScript for disabling form submissions if there are invalid fields
 	(function() {

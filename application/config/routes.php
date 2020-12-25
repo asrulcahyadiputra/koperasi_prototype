@@ -55,3 +55,11 @@ $route['master/user/hapus/(:any)']						= 'master/User/destroy/$1';
 $route['master/akun']								= 'master/Akun';
 $route['master/akun/simpan']							= 'master/Akun/store';
 $route['master/akun/edit']							= 'master/Akun/update';
+
+/*
+| -------------------------------------------------------------------------
+| TRANSAKSI PENYETORAN
+| -------------------------------------------------------------------------
+*/
+$route['transaksi/penyetoran']						= 'transaksi/Penyetoran';
+$route['transaksi/penyetoran/simpan']					= 'transaksi/Penyetoran/store';
