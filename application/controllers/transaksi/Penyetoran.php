@@ -27,6 +27,12 @@ class Penyetoran extends CI_Controller
 		$this->session->set_flashdata($request['label'], $request['msg']);
 		redirect('transaksi/penyetoran');
 	}
+	public function update()
+	{
+		$request = $this->model->update();
+		$this->session->set_flashdata($request['label'], $request['msg']);
+		redirect('transaksi/penyetoran');
+	}
 }
 
 /* End of file Penyetoran.php */

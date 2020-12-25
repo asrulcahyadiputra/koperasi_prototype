@@ -81,6 +81,48 @@ class M_penyetoran extends CI_Model
 		}
 		return $response;
 	}
+
+	public function update()
+	{
+		$id_transaksi 		= $this->input->post('id_transaksi');
+		$id_anggota 		= $this->input->post('id_anggota');
+		$total			= intval(preg_replace("/[^0-9]/", "", $this->input->post('total')));
+
+		if ($total > 0) {
+			$data = [
+				'id_anggota'			=> $id_anggota,
+				'total'				=> $total,
+				'trans_type'			=> 'penyetoran_anggota'
+			];
+			$gl = [
+				[
+					'id_transaksi'		=> $id_transaksi,
+					'nominal'			=> $total
+				],
+				[
+					'id_transaksi'		=> $id_transaksi,
+					'nominal'			=> $total
+				]
+			];
+			$this->db->trans_start();
+			$this->db->update('transaksi', $data, ['id_transaksi' => $id_transaksi]);
+			$this->db->update_batch('jurnal_umum', $gl, 'id_transaksi');
+			$this->db->trans_complete();
+
+			$response = [
+				'status'			=> 'OK',
+				'label'			=> 'success',
+				'msg'			=> 'Penyetoran Simpanan Berhasil Diedit !'
+			];
+		} else {
+			$response = [
+				'status'			=> 'BAD REQUEST',
+				'label'			=> 'error',
+				'msg'			=> 'Penyetoran Simpanan Gagal Diedit !'
+			];
+		}
+		return $response;
+	}
 }
 
 /* End of file M_penyetoran.php */

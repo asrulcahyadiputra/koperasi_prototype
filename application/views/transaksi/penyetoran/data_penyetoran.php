@@ -145,4 +145,41 @@
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
+
+	<?php foreach ($transaksi as $t) : ?>
+		<!-- Primary Header Modal -->
+		<div id="editModal<?= $t['id_transaksi'] ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="primary-header-modalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header modal-colored-header bg-primary">
+						<h4 class="modal-title" id="primary-header-modalLabel">Edit <?= $title ?>
+						</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					</div>
+					<form action="<?= site_url('transaksi/penyetoran/edit') ?>" method="POST" class="needs-validation" novalidate>
+						<input type="hidden" name="id_transaksi" value="<?= $t['id_transaksi'] ?>">
+						<div class="modal-body">
+							<div class="form-group">
+								<label for="id_anggota<?= $t['id_transaksi'] ?>">Anggota</label>
+								<select name="id_anggota" id="id_anggota<?= $t['id_transaksi'] ?>" class="form-control">
+									<option value="">-pilih anggota-</option>
+									<?php foreach ($anggota as $ag) : ?>
+										<option <?= $t['id_anggota'] == $ag['id_anggota'] ? 'selected' : '' ?> value="<?= $ag['id_anggota'] ?>"><?= $ag['id_anggota'] . ' ' . $ag['nama_anggota'] ?></option>
+									<?php endforeach ?>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="total<?= $t['id_transaksi'] ?>">Jumlah Setoran</label>
+								<input type="text" name="total" id="total<?= $t['id_transaksi'] ?>" class="form-control" value="<?= nominal($t['total']) ?>" data-type="currency" required>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-light" data-dismiss="modal">Batal</button>
+							<button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+						</div>
+					</form>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+	<?php endforeach ?>
 	<?php $this->load->view('_partials/footer'); ?>
