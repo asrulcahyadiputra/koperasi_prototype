@@ -28,6 +28,27 @@ class M_pegawai extends CI_Model
 	}
 	public function insert()
 	{
+
+		$email_post = $this->input->post('email');
+
+		if ($email_post != null | $email_post != '') {
+			$validate = $this->db->get_where('pegawai', ['status' => 1, 'email' => $email_post])->result_array();
+			if ($validate) {
+				$response = [
+					'status' 	=> 'WARNING',
+					'label'	=> 'warning',
+					'msg'	=> 'Email telah digunakan silahkan gunakan yang lain !'
+				];
+			} else {
+				$response = $this->_store();
+			}
+		} else {
+			$response = $this->_store();
+		}
+		return $response;
+	}
+	private function _store()
+	{
 		$id_pegawai = $this->id_pegawai();
 		$nama_pegawai = $this->input->post('nama_pegawai');
 		$jabatan = $this->input->post('jabatan');
@@ -39,7 +60,6 @@ class M_pegawai extends CI_Model
 		} else {
 			$email = $email_post;
 		}
-
 		$data = [
 			'id_pegawai'		=> $id_pegawai,
 			'nama_pegawai'		=> $nama_pegawai,
