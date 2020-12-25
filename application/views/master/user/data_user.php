@@ -74,7 +74,6 @@
 										<th>#</th>
 										<th>ID User</th>
 										<th>Username</th>
-										<th>Nama User</th>
 										<th>Status</th>
 										<th>Aksi</th>
 									</tr>
@@ -86,12 +85,22 @@
 											<td><?= $no++ ?></td>
 											<td><?= $row['id_user'] ?></td>
 											<td><?= $row['username'] ?></td>
-											<td>adsad</td>
-											<td>dsadas</td>
 											<td>
-												<a href="#" data-toggle="modal" data-target="#editModal<?= $row['id_user'] ?>">
-													<i data-feather="edit-3" class="feather-icon"></i>
-												</a>
+												<span class=" <?= $row['is_active'] == 1 ? 'text-success' : 'text-danger' ?> text-success">
+													<?= $row['is_active'] == 1 ? 'Aktif' : 'Tidak Aktif' ?>
+												</span>
+											</td>
+											<td>
+												<?php if ($row['is_active'] == 1) : ?>
+													<a href="<?= site_url('master/user/status/' . $row['id_user'] . '/' . $row['is_active']) ?>">
+														<i data-feather="lock" onclick="return confirm('User akan di Non Aktfkan, apakah anda yakin ?')" class="feather-icon"></i>
+													</a>
+												<?php endif ?>
+												<?php if ($row['is_active'] == 0) : ?>
+													<a href="<?= site_url('master/user/status/' . $row['id_user'] . '/' . $row['is_active']) ?>">
+														<i data-feather="unlock" onclick="return confirm('User akan di Aktfkan, apakah anda yakin ?')" class="feather-icon"></i>
+													</a>
+												<?php endif ?>
 
 												<a href="<?= site_url('master/user/hapus/' . $row['id_user']) ?>" class="text-danger" onclick="return confirm('Data Tidak Dapat Dikembalikan, Anda Yakin ?')">
 													<i data-feather="trash-2" class="feather-icon"></i>
@@ -145,31 +154,5 @@
 		</div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
 
-	<?php foreach ($user as $row) : ?>
-		<!-- Primary Header Modal -->
-		<div id="editModal<?= $row['id_user'] ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="primary-header-modalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header modal-colored-header bg-primary">
-						<h4 class="modal-title" id="primary-header-modalLabel">Edit <?= $title ?>
-						</h4>
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-					</div>
-					<form action="<?= site_url('master/anggota/edit') ?>" method="POST" class="needs-validation" novalidate>
-						<input type="hidden" value="<?= $row['id_user'] ?>" name="id_user">
-						<div class="modal-body">
-							<div class="form-group">
-								<label for="username<?= $row['id_user'] ?>">Nama Anggota</label>
-								<input type="text" name="username" id="username<?= $row['id_user'] ?>" class="form-control" value="<?= $row['username'] ?>" required>
-							</div>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-light" data-dismiss="modal">Batal</button>
-							<button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-						</div>
-					</form>
-				</div><!-- /.modal-content -->
-			</div><!-- /.modal-dialog -->
-		</div><!-- /.modal -->
-	<?php endforeach ?>
+
 	<?php $this->load->view('_partials/footer'); ?>

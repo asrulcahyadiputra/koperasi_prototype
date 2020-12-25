@@ -44,5 +44,5 @@ $route['master/pegawai/hapus/(:any)']					= 'master/pegawai/destroy/$1';
 */
 $route['master/user']								= 'master/User';
 $route['master/user/simpan']							= 'master/User/store';
-$route['master/user/edit']							= 'master/User/update';
+$route['master/user/status/(:any)/(:any)']				= 'master/User/update/$1/$2';
 $route['master/user/hapus/(:any)']						= 'master/User/destroy/$1';

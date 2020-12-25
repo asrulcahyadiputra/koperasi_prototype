@@ -25,6 +25,12 @@ class User extends CI_Controller
 		$this->session->set_flashdata($request['label'], $request['msg']);
 		redirect('master/user');
 	}
+	public function update($id_user, $status)
+	{
+		$request = $this->model->update($id_user, $status);
+		$this->session->set_flashdata($request['label'], $request['msg']);
+		redirect('master/user');
+	}
 }
 
 /* End of file User.php */

@@ -92,6 +92,40 @@ class M_user extends CI_Model
 
 		return $response;
 	}
+	public function update($id_user, $status)
+	{
+		$validate 	= $this->db->get_where('users', ['status' => 1, 'id_user' => $id_user])->row_array();
+		if ($status == 1) {
+			$is_active = 0;
+		} else {
+			$is_active = 1;
+		}
+		if ($validate) {
+			$data = [
+				'is_active'		=> $is_active
+			];
+			if ($this->db->update('users', $data, ['id_user' => $id_user])) {
+				$response = [
+					'status' 	=> 'OK',
+					'label'	=> 'success',
+					'msg'	=> 'Status user berhasil diperbaharui !'
+				];
+			} else {
+				$response = [
+					'status' 	=> 'BAD REQUEST',
+					'label'	=> 'error',
+					'msg'	=> 'Statu User GAGAL  diperbaharui !'
+				];
+			}
+		} else {
+			$response = [
+				'status' 	=> 'ILLEGAL REQUEST',
+				'label'	=> 'error',
+				'msg'	=> 'Illegal Request, Anda mencoba mengakses user yang tidak tersedia !'
+			];
+		}
+		return $response;
+	}
 }
 
 /* End of file M_user.php */
