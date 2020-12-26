@@ -60,7 +60,7 @@
 				<?php endif ?>
 			</div>
 			<div class="col-12">
-				<form method="POST" action="<?= site_url('laporan/jurnal_umum') ?>" class="form-inline">
+				<form method="GET" action="<?= site_url('laporan/jurnal_umum') ?>" class="form-inline">
 					<label class="sr-only" for="inlineFormInputName2">Periode</label>
 					<input type="month" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" name="periode">
 

@@ -13,7 +13,7 @@ class Jurnal_umum extends CI_Controller
 
 	public function index()
 	{
-		$periode = $this->input->post('periode');
+		$periode = $this->input->get('periode');
 		if ($periode === null) {
 			$m = date('m');
 			$y = date('Y');
