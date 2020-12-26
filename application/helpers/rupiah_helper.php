@@ -11,11 +11,11 @@ function nominal1($angka)
 }
 function nominal2($angka)
 {
-	$jd = number_format($angka, 0, '.', '.');
+	$jd = number_format($angka, 2, ',', '.');
 	return 'Rp ' . $jd;
 }
 function nominal3($angka)
 {
-	$jd = number_format($angka, 0, '.', ',');
-	return 'Rp ' . $jd;
+	$jd = number_format($angka, 2, ',', '.');
+	return $jd;
 }

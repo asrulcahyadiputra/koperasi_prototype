@@ -16,6 +16,19 @@ class M_pengajuan extends CI_Model
 			->where('trans_type', 'pinjaman');
 		return $this->db->get()->result_array();
 	}
+	public function SelectTransaksi($id)
+	{
+		$this->db->select('a.id_transaksi,a.tanggal,a.id_anggota,a.total,a.status,b.nama_anggota,a.lama_angsuran,a.bunga_pinjaman')
+			->from('transaksi as a')
+			->join('anggota as b', 'a.id_anggota=b.id_anggota')
+			->where('trans_type', 'pinjaman')
+			->where('id_transaksi', $id);
+		return $this->db->get()->row_array();
+	}
+	public function SelectPinjaman($id)
+	{
+		return $this->db->get_where('detail_pinjaman', ['id_transaksi' => $id])->result_array();
+	}
 	private function id_transaksi()
 	{
 		$this->db->select('RIGHT(id_transaksi,9) as id_transaksi', FALSE);
