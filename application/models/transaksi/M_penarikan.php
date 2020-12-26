@@ -64,7 +64,7 @@ class M_penarikan extends CI_Model
 					'id_transaksi'			=> $id_transaksi,
 					'id_anggota'			=> $id_anggota,
 					'total'				=> $total,
-					'trans_type'			=> 'penarikan_anggota'
+					'trans_type'			=> 'penyetoran_anggota'
 				];
 				$gl = [
 					[

@@ -73,6 +73,17 @@ $route['transaksi/penyetoran/edit']					= 'transaksi/Penyetoran/update';
 $route['transaksi/penarikan']							= 'transaksi/Penarikan';
 $route['transaksi/penarikan/find_saldo']				= 'transaksi/penarikan/find_saldo';
 $route['transaksi/penarikan/simpan']					= 'transaksi/Penarikan/store';
+
+/*
+| -------------------------------------------------------------------------
+| TRANSAKSI PENGAJUAN PINJAMAN
+| -------------------------------------------------------------------------
+*/
+$route['transaksi/pengajuan']							= 'transaksi/Pengajuan';
+$route['transaksi/pengajuan/buat']						= 'transaksi/Pengajuan/create';
+$route['transaksi/pengajuan/simpan']					= 'transaksi/Pengajuan/store';
+
+
 /*
 | -------------------------------------------------------------------------
 | LAPORAN JURNAL UMUM

@@ -63,28 +63,59 @@
 	})();
 </script>
 
-<!-- cek saldo -->
-<script>
-	$(document).ready(function() {
-		$('#id_anggota').change(function() {
-			var id_anggota = $('#id_anggota').val();
-			var dp;
-			$.ajax({
-				url: '<?= site_url('transaksi/penarikan/find_saldo') ?>',
-				type: 'POST',
-				dataType: 'JSON',
-				data: {
-					id_anggota: id_anggota,
-				},
-				success: function(data) {
-					response = data.saldo;
-					saldo = new Intl.NumberFormat('ja-JP').format(response);
-					$('#saldo').html('Rp ' + saldo);
-				}
+
+<?php if ($this->uri->segment(2) == 'penarikan') : ?>
+	<!-- cek saldo untuk penarikan simpanan -->
+	<script>
+		$(document).ready(function() {
+			$('#id_anggota').change(function() {
+				var id_anggota = $('#id_anggota').val();
+				var dp;
+				$.ajax({
+					url: '<?= site_url('transaksi/penarikan/find_saldo') ?>',
+					type: 'POST',
+					dataType: 'JSON',
+					data: {
+						id_anggota: id_anggota,
+					},
+					success: function(data) {
+						response = data.saldo;
+						saldo = new Intl.NumberFormat('ja-JP').format(response);
+						$('#saldo').html('Rp ' + saldo);
+					}
+				});
 			});
 		});
-	});
-</script>
+	</script>
+<?php endif ?>
+
+
+<?php if ($this->uri->segment(2) == 'pengajuan') : ?>
+	<!-- cek saldo untuk pengajuan -->
+	<script>
+		$(document).ready(function() {
+			$('#id_anggota').change(function() {
+				var id_anggota = $('#id_anggota').val();
+				var dp;
+				$.ajax({
+					url: '<?= site_url('transaksi/penarikan/find_saldo') ?>',
+					type: 'POST',
+					dataType: 'JSON',
+					data: {
+						id_anggota: id_anggota,
+					},
+					success: function(data) {
+						response = data.saldo * 3;
+						saldo = new Intl.NumberFormat('ja-JP').format(response);
+						$("#hide_limit").val(response);
+						$('#limit_pinjaman').val('Rp ' + saldo);
+					}
+				});
+			});
+		});
+	</script>
+<?php endif ?>
+
 </body>
 
 </html>
