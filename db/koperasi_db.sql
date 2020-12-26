@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Dec 25, 2020 at 10:41 PM
+-- Generation Time: Dec 26, 2020 at 05:48 PM
 -- Server version: 5.7.32
 -- PHP Version: 7.4.12
 
@@ -74,7 +74,7 @@ INSERT INTO `anggota` (`id_anggota`, `nama_anggota`, `alamat_anggota`, `no_hp`, 
 
 CREATE TABLE `jurnal_umum` (
   `id_jurnal` bigint(20) NOT NULL,
-  `tanngal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `kode_akun` char(20) NOT NULL,
   `id_transaksi` varchar(20) NOT NULL,
   `nominal` double NOT NULL,
@@ -85,7 +85,7 @@ CREATE TABLE `jurnal_umum` (
 -- Dumping data for table `jurnal_umum`
 --
 
-INSERT INTO `jurnal_umum` (`id_jurnal`, `tanngal`, `kode_akun`, `id_transaksi`, `nominal`, `posisi`) VALUES
+INSERT INTO `jurnal_umum` (`id_jurnal`, `tanggal`, `kode_akun`, `id_transaksi`, `nominal`, `posisi`) VALUES
 (1, '2020-12-25 22:03:42', '110001', 'TRX-STR-000000001', 250000, 'd'),
 (2, '2020-12-25 22:03:42', '310001', 'TRX-STR-000000001', 250000, 'k'),
 (3, '2020-12-25 22:13:23', '110001', 'TRX-STR-000000002', 250000, 'd'),
@@ -93,7 +93,11 @@ INSERT INTO `jurnal_umum` (`id_jurnal`, `tanngal`, `kode_akun`, `id_transaksi`, 
 (5, '2020-12-25 22:14:32', '110001', 'TRX-STR-000000003', 250000, 'd'),
 (6, '2020-12-25 22:14:32', '310001', 'TRX-STR-000000003', 250000, 'k'),
 (7, '2020-12-25 22:14:47', '110001', 'TRX-STR-000000004', 250000, 'd'),
-(8, '2020-12-25 22:14:47', '310001', 'TRX-STR-000000004', 250000, 'k');
+(8, '2020-12-25 22:14:47', '310001', 'TRX-STR-000000004', 250000, 'k'),
+(9, '2020-12-26 17:42:14', '110001', 'TRX-STR-000000005', 250000000, 'd'),
+(10, '2020-12-26 17:42:14', '310001', 'TRX-STR-000000005', 250000000, 'k'),
+(11, '2020-12-26 17:44:31', '310001', 'TRX-PNR-000000001', 250000, 'd'),
+(12, '2020-12-26 17:44:31', '110001', 'TRX-PNR-000000001', 250000, 'k');
 
 -- --------------------------------------------------------
 
@@ -194,10 +198,12 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`id_transaksi`, `tanggal`, `id_anggota`, `total`, `trans_type`) VALUES
+('TRX-PNR-000000001', '2020-12-26 17:44:31', 'AGT-000001', 250000, 'penarikan_anggota'),
 ('TRX-STR-000000001', '2020-12-25 22:03:42', 'AGT-000001', 250000, 'penyetoran_anggota'),
 ('TRX-STR-000000002', '2020-12-25 22:13:23', 'AGT-000002', 250000, 'penyetoran_anggota'),
 ('TRX-STR-000000003', '2020-12-25 22:14:32', 'AGT-000003', 250000, 'penyetoran_anggota'),
-('TRX-STR-000000004', '2020-12-25 22:14:47', 'AGT-000004', 250000, 'penyetoran_anggota');
+('TRX-STR-000000004', '2020-12-25 22:14:47', 'AGT-000004', 250000, 'penyetoran_anggota'),
+('TRX-STR-000000005', '2020-12-26 17:42:14', 'AGT-000001', 250000000, 'penyetoran_anggota');
 
 -- --------------------------------------------------------
 
@@ -291,7 +297,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `jurnal_umum`
 --
 ALTER TABLE `jurnal_umum`
-  MODIFY `id_jurnal` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_jurnal` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Constraints for dumped tables
