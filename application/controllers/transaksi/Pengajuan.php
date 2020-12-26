@@ -44,6 +44,18 @@ class Pengajuan extends CI_Controller
 		];
 		$this->load->view('transaksi/pengajuan/detail_pengajuan', $data);
 	}
+	public function acc($id)
+	{
+		$request = $this->model->acc($id);
+		$this->session->set_flashdata($request['label'], $request['msg']);
+		redirect('transaksi/pengajuan/detail/' . $id);
+	}
+	public function rejected($id)
+	{
+		$request = $this->model->rejected($id);
+		$this->session->set_flashdata($request['label'], $request['msg']);
+		redirect('transaksi/pengajuan/detail/' . $id);
+	}
 }
 
 /* End of file Pengajuan.php */

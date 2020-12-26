@@ -67,6 +67,25 @@
 						<div class="table-responsive">
 							<table class="table tablle-sm">
 								<tr>
+									<td colspan="4" class="text-right">
+										<?php if ($transaksi['status'] == 0) : ?>
+											<span class="text-warning">
+												Belum Disetujui
+											</span>
+										<?php endif ?>
+										<?php if ($transaksi['status'] == 1) : ?>
+											<span class="text-success">
+												Disetujui
+											</span>
+										<?php endif ?>
+										<?php if ($transaksi['status'] == 2) : ?>
+											<span class="text-danger">
+												Ditolak
+											</span>
+										<?php endif ?>
+									</td>
+								</tr>
+								<tr>
 									<td style="width: 20%;">No</td>
 									<td>: <?= $transaksi['id_transaksi'] ?></td>
 									<td style="width: 20%;">Total</td>
@@ -172,6 +191,10 @@
 									</tr>
 								</tbody>
 							</table>
+							<div class="text-right">
+								<a href="<?= site_url('transaksi/pengajuan/acc/' . $transaksi['id_transaksi']) ?>" class="btn btn-success">Setujui Pengajuan</a>
+								<a href="<?= site_url('transaksi/pengajuan/rejected/' . $transaksi['id_transaksi']) ?>" class="btn btn-danger">Tolak Pengajuan</a>
+							</div>
 						</div>
 					</div>
 				</div>

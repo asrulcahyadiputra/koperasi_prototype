@@ -83,6 +83,8 @@ $route['transaksi/pengajuan']							= 'transaksi/Pengajuan';
 $route['transaksi/pengajuan/buat']						= 'transaksi/Pengajuan/create';
 $route['transaksi/pengajuan/simpan']					= 'transaksi/Pengajuan/store';
 $route['transaksi/pengajuan/detail/(:any)']				= 'transaksi/Pengajuan/show/$1';
+$route['transaksi/pengajuan/acc/(:any)']				= 'transaksi/Pengajuan/acc/$1';
+$route['transaksi/pengajuan/rejected/(:any)']			= 'transaksi/Pengajuan/rejected/$1';
 
 
 /*

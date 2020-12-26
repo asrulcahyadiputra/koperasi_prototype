@@ -75,14 +75,89 @@ class M_pengajuan extends CI_Model
 			];
 		}
 		$this->db->trans_start();
-		$this->db->insert('transaksi', $data, ['id_transaksi' => $id_transaksi]);
+		$this->db->insert('transaksi', $data);
 		$this->db->insert_batch('detail_pinjaman', $detail);
 		$this->db->trans_complete();
 		$response = [
 			'status'			=> 'OK',
 			'label'			=> 'success',
-			'msg'			=> 'Penarikan Simpanan Berhasil Ditambahkan !'
+			'msg'			=> 'Pengajuan Berhasil Dilakukan!'
 		];
+
+		return $response;
+	}
+	public function acc($id_transaksi)
+	{
+		$validate = $this->db->get_where('transaksi', ['id_transaksi' => $id_transaksi])->row_array();
+		if ($validate) {
+			if ($validate['status'] == 0) {
+				$data = [
+					'status'		=> 1
+				];
+				$this->db->update('transaksi', $data, ['id_transaksi' => $id_transaksi]);
+				$response = [
+					'status'			=> 'OK',
+					'label'			=> 'success',
+					'msg'			=> 'Pengajuan Disetujui!'
+				];
+			} elseif ($validate['status'] == 2) {
+				$response = [
+					'status' 	=> 'WARNING',
+					'label'	=> 'warning',
+					'msg'	=> 'Pengajuan ini Telah Ditolak Sebelumnya !'
+				];
+			} else {
+				$response = [
+					'status' 	=> 'WARNING',
+					'label'	=> 'warning',
+					'msg'	=> 'Pengajuan ini Telah Disetujui Sebelumnya !'
+				];
+			}
+		} else {
+			$response = [
+				'status' 	=> 'ILLEGAL REQUEST',
+				'label'	=> 'error',
+				'msg'	=> 'Illegal Request, Anda mencoba mengakses pengajuan yang tidak tersedia !'
+			];
+		}
+
+		return $response;
+	}
+
+	public function rejected($id_transaksi)
+	{
+		$validate = $this->db->get_where('transaksi', ['id_transaksi' => $id_transaksi])->row_array();
+		if ($validate) {
+			if ($validate['status'] == 0) {
+				$data = [
+					'status'		=> 2
+				];
+				$this->db->update('transaksi', $data, ['id_transaksi' => $id_transaksi]);
+				$response = [
+					'status'			=> 'OK',
+					'label'			=> 'success',
+					'msg'			=> 'Pengajuan Ditolak!'
+				];
+			} elseif ($validate['status'] == 2) {
+				$response = [
+					'status' 	=> 'WARNING',
+					'label'	=> 'warning',
+					'msg'	=> 'Pengajuan ini Telah Ditolak Sebelumnya !'
+				];
+			} else {
+				$response = [
+					'status' 	=> 'WARNING',
+					'label'	=> 'warning',
+					'msg'	=> 'Pengajuan ini Telah Disetujui Sebelumnya, Anda Tidak dapat Menolak !'
+				];
+			}
+		} else {
+			$response = [
+				'status' 	=> 'ILLEGAL REQUEST',
+				'label'	=> 'error',
+				'msg'	=> 'Illegal Request, Anda mencoba mengakses pengajuan yang tidak tersedia !'
+			];
+		}
 
 		return $response;
 	}
