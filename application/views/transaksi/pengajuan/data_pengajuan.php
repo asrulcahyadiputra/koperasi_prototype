@@ -81,7 +81,38 @@
 									</tr>
 								</thead>
 								<tbody>
-
+									<?php $no = 1;
+									foreach ($transaksi as $t) : ?>
+										<tr>
+											<td><?= $no++ ?></td>
+											<td><?= $t['id_transaksi'] ?></td>
+											<td><?= date('d-m-Y', strtotime($t['tanggal'])) ?></td>
+											<td><?= $t['id_anggota'] . ' ' . $t['nama_anggota'] ?></td>
+											<td><?= nominal($t['total']) ?></td>
+											<td>
+												<?php if ($t['status'] == 0) : ?>
+													<span class="text-warning">
+														Belum Disetujui
+													</span>
+												<?php endif ?>
+												<?php if ($t['status'] == 1) : ?>
+													<span class="text-success">
+														Disetujui
+													</span>
+												<?php endif ?>
+												<?php if ($t['status'] == 2) : ?>
+													<span class="text-danger">
+														Ditolak
+													</span>
+												<?php endif ?>
+											</td>
+											<td>
+												<a href="<?= site_url('transaksi/pengajuan/detail/' . $t['id_transaksi']) ?>" class="btn btn-info btn-sm">
+													<i data-feather="list" class="feather-icon"></i>
+												</a>
+											</td>
+										</tr>
+									<?php endforeach ?>
 								</tbody>
 							</table>
 						</div>
