@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Dec 26, 2020 at 05:48 PM
+-- Generation Time: Dec 26, 2020 at 09:13 PM
 -- Server version: 5.7.32
 -- PHP Version: 7.4.12
 
@@ -69,6 +69,66 @@ INSERT INTO `anggota` (`id_anggota`, `nama_anggota`, `alamat_anggota`, `no_hp`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `detail_pinjaman`
+--
+
+CREATE TABLE `detail_pinjaman` (
+  `id_pinjaman` bigint(20) NOT NULL,
+  `id_transaksi` varchar(20) NOT NULL,
+  `bulan_ke` int(11) NOT NULL,
+  `angsuran_pokok` double NOT NULL,
+  `angsuran_bunga` double NOT NULL,
+  `angsuran` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `detail_pinjaman`
+--
+
+INSERT INTO `detail_pinjaman` (`id_pinjaman`, `id_transaksi`, `bulan_ke`, `angsuran_pokok`, `angsuran_bunga`, `angsuran`) VALUES
+(1, 'TRX-PNJ-000000001', 1, 15625000, 7500000, 23125000),
+(2, 'TRX-PNJ-000000001', 2, 15625000, 7187500, 22812500),
+(3, 'TRX-PNJ-000000001', 3, 15625000, 6875000, 22500000),
+(4, 'TRX-PNJ-000000001', 4, 15625000, 6562500, 22187500),
+(5, 'TRX-PNJ-000000001', 5, 15625000, 6250000, 21875000),
+(6, 'TRX-PNJ-000000001', 6, 15625000, 5937500, 21562500),
+(7, 'TRX-PNJ-000000001', 7, 15625000, 5625000, 21250000),
+(8, 'TRX-PNJ-000000001', 8, 15625000, 5312500, 20937500),
+(9, 'TRX-PNJ-000000001', 9, 15625000, 5000000, 20625000),
+(10, 'TRX-PNJ-000000001', 10, 15625000, 4687500, 20312500),
+(11, 'TRX-PNJ-000000001', 11, 15625000, 4375000, 20000000),
+(12, 'TRX-PNJ-000000001', 12, 15625000, 4062500, 19687500),
+(13, 'TRX-PNJ-000000001', 13, 15625000, 3750000, 19375000),
+(14, 'TRX-PNJ-000000001', 14, 15625000, 3437500, 19062500),
+(15, 'TRX-PNJ-000000001', 15, 15625000, 3125000, 18750000),
+(16, 'TRX-PNJ-000000001', 16, 15625000, 2812500, 18437500),
+(17, 'TRX-PNJ-000000001', 17, 15625000, 2500000, 18125000),
+(18, 'TRX-PNJ-000000001', 18, 15625000, 2187500, 17812500),
+(19, 'TRX-PNJ-000000001', 19, 15625000, 1875000, 17500000),
+(20, 'TRX-PNJ-000000001', 20, 15625000, 1562500, 17187500),
+(21, 'TRX-PNJ-000000001', 21, 15625000, 1250000, 16875000),
+(22, 'TRX-PNJ-000000001', 22, 15625000, 937500, 16562500),
+(23, 'TRX-PNJ-000000001', 23, 15625000, 625000, 16250000),
+(24, 'TRX-PNJ-000000001', 24, 15625000, 312500, 15937500),
+(25, 'TRX-PNJ-000000002', 1, 250000, 15000, 265000),
+(26, 'TRX-PNJ-000000002', 2, 250000, 10000, 260000),
+(27, 'TRX-PNJ-000000002', 3, 250000, 5000, 255000),
+(28, 'TRX-PNJ-000000003', 1, 512500, 123000, 635500),
+(29, 'TRX-PNJ-000000003', 2, 512500, 112750, 625250),
+(30, 'TRX-PNJ-000000003', 3, 512500, 102500, 615000),
+(31, 'TRX-PNJ-000000003', 4, 512500, 92250, 604750),
+(32, 'TRX-PNJ-000000003', 5, 512500, 82000, 594500),
+(33, 'TRX-PNJ-000000003', 6, 512500, 71750, 584250),
+(34, 'TRX-PNJ-000000003', 7, 512500, 61500, 574000),
+(35, 'TRX-PNJ-000000003', 8, 512500, 51250, 563750),
+(36, 'TRX-PNJ-000000003', 9, 512500, 41000, 553500),
+(37, 'TRX-PNJ-000000003', 10, 512500, 30750, 543250),
+(38, 'TRX-PNJ-000000003', 11, 512500, 20500, 533000),
+(39, 'TRX-PNJ-000000003', 12, 512500, 10250, 522750);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `jurnal_umum`
 --
 
@@ -97,7 +157,9 @@ INSERT INTO `jurnal_umum` (`id_jurnal`, `tanggal`, `kode_akun`, `id_transaksi`, 
 (9, '2020-12-26 17:42:14', '110001', 'TRX-STR-000000005', 250000000, 'd'),
 (10, '2020-12-26 17:42:14', '310001', 'TRX-STR-000000005', 250000000, 'k'),
 (11, '2020-12-26 17:44:31', '310001', 'TRX-PNR-000000001', 250000, 'd'),
-(12, '2020-12-26 17:44:31', '110001', 'TRX-PNR-000000001', 250000, 'k');
+(12, '2020-12-26 17:44:31', '110001', 'TRX-PNR-000000001', 250000, 'k'),
+(13, '2020-12-26 21:12:46', '110001', 'TRX-STR-000000006', 10000000, 'd'),
+(14, '2020-12-26 21:12:46', '310001', 'TRX-STR-000000006', 10000000, 'k');
 
 -- --------------------------------------------------------
 
@@ -189,7 +251,10 @@ CREATE TABLE `transaksi` (
   `id_transaksi` varchar(20) NOT NULL,
   `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `id_anggota` varchar(20) DEFAULT NULL,
+  `lama_angsuran` int(11) DEFAULT NULL,
+  `bunga_pinjaman` float DEFAULT NULL,
   `total` double NOT NULL,
+  `status` int(1) NOT NULL DEFAULT '1',
   `trans_type` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -197,13 +262,17 @@ CREATE TABLE `transaksi` (
 -- Dumping data for table `transaksi`
 --
 
-INSERT INTO `transaksi` (`id_transaksi`, `tanggal`, `id_anggota`, `total`, `trans_type`) VALUES
-('TRX-PNR-000000001', '2020-12-26 17:44:31', 'AGT-000001', 250000, 'penarikan_anggota'),
-('TRX-STR-000000001', '2020-12-25 22:03:42', 'AGT-000001', 250000, 'penyetoran_anggota'),
-('TRX-STR-000000002', '2020-12-25 22:13:23', 'AGT-000002', 250000, 'penyetoran_anggota'),
-('TRX-STR-000000003', '2020-12-25 22:14:32', 'AGT-000003', 250000, 'penyetoran_anggota'),
-('TRX-STR-000000004', '2020-12-25 22:14:47', 'AGT-000004', 250000, 'penyetoran_anggota'),
-('TRX-STR-000000005', '2020-12-26 17:42:14', 'AGT-000001', 250000000, 'penyetoran_anggota');
+INSERT INTO `transaksi` (`id_transaksi`, `tanggal`, `id_anggota`, `lama_angsuran`, `bunga_pinjaman`, `total`, `status`, `trans_type`) VALUES
+('TRX-PNJ-000000001', '2020-12-26 20:11:25', 'AGT-000001', 24, 0.02, 375000000, 0, 'pinjaman'),
+('TRX-PNJ-000000002', '2020-12-26 21:11:48', 'AGT-000002', 3, 0.02, 750000, 0, 'pinjaman'),
+('TRX-PNJ-000000003', '2020-12-26 21:13:11', 'AGT-000003', 12, 0.02, 6150000, 0, 'pinjaman'),
+('TRX-PNR-000000001', '2020-12-26 17:44:31', 'AGT-000001', NULL, NULL, 250000, 1, 'penarikan_anggota'),
+('TRX-STR-000000001', '2020-12-25 22:03:42', 'AGT-000001', NULL, NULL, 250000, 1, 'penyetoran_anggota'),
+('TRX-STR-000000002', '2020-12-25 22:13:23', 'AGT-000002', NULL, NULL, 250000, 1, 'penyetoran_anggota'),
+('TRX-STR-000000003', '2020-12-25 22:14:32', 'AGT-000003', NULL, NULL, 250000, 1, 'penyetoran_anggota'),
+('TRX-STR-000000004', '2020-12-25 22:14:47', 'AGT-000004', NULL, NULL, 250000, 1, 'penyetoran_anggota'),
+('TRX-STR-000000005', '2020-12-26 17:42:14', 'AGT-000001', NULL, NULL, 250000000, 1, 'penyetoran_anggota'),
+('TRX-STR-000000006', '2020-12-26 21:12:46', 'AGT-000003', NULL, NULL, 10000000, 1, 'penyetoran_anggota');
 
 -- --------------------------------------------------------
 
@@ -250,6 +319,13 @@ ALTER TABLE `anggota`
   ADD PRIMARY KEY (`id_anggota`);
 
 --
+-- Indexes for table `detail_pinjaman`
+--
+ALTER TABLE `detail_pinjaman`
+  ADD PRIMARY KEY (`id_pinjaman`),
+  ADD KEY `id_transaksi` (`id_transaksi`);
+
+--
 -- Indexes for table `jurnal_umum`
 --
 ALTER TABLE `jurnal_umum`
@@ -294,10 +370,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `detail_pinjaman`
+--
+ALTER TABLE `detail_pinjaman`
+  MODIFY `id_pinjaman` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+
+--
 -- AUTO_INCREMENT for table `jurnal_umum`
 --
 ALTER TABLE `jurnal_umum`
-  MODIFY `id_jurnal` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_jurnal` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables
@@ -308,6 +390,12 @@ ALTER TABLE `jurnal_umum`
 --
 ALTER TABLE `akun`
   ADD CONSTRAINT `akun_ibfk_1` FOREIGN KEY (`kode_sub_akun`) REFERENCES `sub_akun` (`kode_sub_akun`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `detail_pinjaman`
+--
+ALTER TABLE `detail_pinjaman`
+  ADD CONSTRAINT `detail_pinjaman_ibfk_1` FOREIGN KEY (`id_transaksi`) REFERENCES `transaksi` (`id_transaksi`);
 
 --
 -- Constraints for table `jurnal_umum`
