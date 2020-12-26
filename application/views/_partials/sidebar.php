@@ -60,7 +60,7 @@
 							</a>
 						</li>
 						<li class="sidebar-item">
-							<a href="form-inputs.html" class="sidebar-link">
+							<a href="<?= site_url('transaksi/penarikan') ?>" class="sidebar-link">
 								<span class="hide-menu">
 									Penarikan
 								</span>

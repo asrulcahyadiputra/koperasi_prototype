@@ -67,6 +67,14 @@ $route['transaksi/penyetoran/edit']					= 'transaksi/Penyetoran/update';
 
 /*
 | -------------------------------------------------------------------------
+| TRANSAKSI PENARIKAN
+| -------------------------------------------------------------------------
+*/
+$route['transaksi/penarikan']							= 'transaksi/Penarikan';
+$route['transaksi/penarikan/find_saldo']				= 'transaksi/penarikan/find_saldo';
+$route['transaksi/penarikan/simpan']					= 'transaksi/Penarikan/store';
+/*
+| -------------------------------------------------------------------------
 | LAPORAN JURNAL UMUM
 | -------------------------------------------------------------------------
 */

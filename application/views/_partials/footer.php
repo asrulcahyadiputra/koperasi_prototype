@@ -62,6 +62,29 @@
 		}, false);
 	})();
 </script>
+
+<!-- cek saldo -->
+<script>
+	$(document).ready(function() {
+		$('#id_anggota').change(function() {
+			var id_anggota = $('#id_anggota').val();
+			var dp;
+			$.ajax({
+				url: '<?= site_url('transaksi/penarikan/find_saldo') ?>',
+				type: 'POST',
+				dataType: 'JSON',
+				data: {
+					id_anggota: id_anggota,
+				},
+				success: function(data) {
+					response = data.saldo;
+					saldo = new Intl.NumberFormat('ja-JP').format(response);
+					$('#saldo').html('Rp ' + saldo);
+				}
+			});
+		});
+	});
+</script>
 </body>
 
 </html>
