@@ -101,7 +101,7 @@
 					</a>
 					<ul aria-expanded="false" class="collapse first-level base-level-line">
 						<li class="sidebar-item">
-							<a href="icon-fontawesome.html" class="sidebar-link">
+							<a href="<?= site_url('laporan/jurnal_umum') ?>" class="sidebar-link">
 								<span class="hide-menu"> Jurnal Umum </span>
 							</a>
 						</li>

@@ -64,3 +64,10 @@ $route['master/akun/edit']							= 'master/Akun/update';
 $route['transaksi/penyetoran']						= 'transaksi/Penyetoran';
 $route['transaksi/penyetoran/simpan']					= 'transaksi/Penyetoran/store';
 $route['transaksi/penyetoran/edit']					= 'transaksi/Penyetoran/update';
+
+/*
+| -------------------------------------------------------------------------
+| LAPORAN JURNAL UMUM
+| -------------------------------------------------------------------------
+*/
+$route['laporan/jurnal_umum']							= 'laporan/Jurnal_umum';
