@@ -2,6 +2,10 @@
 
 Koperasi adalah sebuah organisasi ekonomi yang dimiliki dan dioperasikan oleh orang-seorang demi kepentingan bersama. Koperasi melandaskan kegiatan berdasarkan prinsip gerakan ekonomi rakyat yang berdasarkan asas kekeluargaan.
 
+# Sistem Bunga Efektif
+
+Sistem bunga efektif adalah kebalikan dari sistem bunga flat, yaitu porsi bunga dihitung berdasarkan pokok utang tersisa. Maka, porsi bunga dan pokok dalam angsuran tiap bulan akan berbeda, meski besar angsuran per bulan tetap sama. Sistem bunga ini biasanya diterapkan pada produk KPR (Kredit Pemilikan Rumah) atau kredit investasi.
+
 # Instalasi
 
 Berikut Cara Instalasi:
